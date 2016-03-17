@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_placed: 2016-03-17 22:23:57
+  date_paid: 2016-03-17 22:23:57
+  total_price: 1.5
+  notes: MyString
+
+two:
+  date_placed: 2016-03-17 22:23:57
+  date_paid: 2016-03-17 22:23:57
+  total_price: 1.5
+  notes: MyString
