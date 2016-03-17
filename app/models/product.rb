@@ -4,4 +4,6 @@ class Product
   field :description, type: String
   field :price, type: Float
   field :stock, type: Integer
+
+  field :sku, type: String
 end

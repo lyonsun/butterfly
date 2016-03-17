@@ -5,9 +5,11 @@ one:
   description: MyString
   price: 1.5
   stock: 1
+  sku: 1
 
 two:
   name: MyString
   description: MyString
   price: 1.5
   stock: 1
+  sku: 1
