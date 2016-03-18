@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @shipping.company %>
+</p>
+
+<p>
+  <strong>Tracking number:</strong>
+  <%= @shipping.tracking_number %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @shipping.status %>
+</p>
+
+<%= link_to 'Edit', edit_shipping_path(@shipping) %> |
+<%= link_to 'Back', shippings_path %>
