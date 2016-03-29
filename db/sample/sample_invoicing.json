@@ -1,0 +1,49 @@
+{
+  "sender": {
+    "name": "Essential Stuff Center Oy",
+    "address": {
+      "line_1": "KASARMIKATU 44",
+      "line_2": "",
+      "zipcode": "00130",
+      "city": "HELSINKI",
+      "country": "FINLAND"
+    },
+    "iban": "FI97 1745 3000 1713 57",
+    "swift_code": "NDEAFIHHXXX",
+    "business_id": "2572821-7"
+  },
+  "billing_address": {
+    "name": "Gao Rui",
+    "address": {
+      "line_1": "8/F, NAN FUNG CENTER",
+      "line_2": "264 CASTLE PEAK RD",
+      "line_3": "TSUEN WAN",
+      "city": "HONG KONG",
+      "country": "CHINA"
+    },
+    "phone": ""
+  },
+  "shipping_address": {
+    "name": "Gao Rui",
+    "address": {
+      "line_1": "8/F, NAN FUNG CENTER",
+      "line_2": "264 CASTLE PEAK RD",
+      "line_3": "TSUEN WAN",
+      "city": "HONG KONG",
+      "country": "CHINA"
+    },
+    "phone": ""
+  },
+  "products": [
+    {
+      "code": "PF652ES180F5005",
+      "description": "KENZO SHOES",
+      "quantity": 1,
+      "price": 76.00,
+      "total": 76.00
+    }
+  ],
+  "vat": 0,
+  "total_pieces": 1,
+  "total_price": 76.00
+}
