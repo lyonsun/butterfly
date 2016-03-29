@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
+<h1 class="page-header">Listing Products</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,9 +22,9 @@
         <td><%= product.price %></td>
         <td><%= product.stock %></td>
         <td><%= product.sku %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', product, :class=>"btn-link" %></td>
+        <td><%= link_to 'Edit', edit_product_path(product), :class=>"btn-link" %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, :class=>"btn btn-default" %>

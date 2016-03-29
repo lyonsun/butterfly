@@ -7,4 +7,6 @@ class Address
   field :zipcode, type: String
   field :province, type: String
   field :country, type: String
+
+  belongs_to :customer, class_name: "Customer", inverse_of: :addresses
 end
