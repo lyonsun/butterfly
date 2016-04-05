@@ -49,4 +49,4 @@ gem 'mongoid', '~> 5.1.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
-gem 'invoicing'
+gem 'roo', '~> 2.3.2'

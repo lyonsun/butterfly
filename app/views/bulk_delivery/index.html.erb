@@ -1,0 +1,28 @@
+<h1 class="page-header">Import Order Addresses</h1>
+
+<% if notice %>
+<div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<%= form_tag import_bulk_delivery_index_path, multipart: true do %>
+  <div class="form-group">
+    <label for="excel-addesses">Addesses in Excel format: </label>
+    <%= file_field_tag :file, :id => 'excel-addesses', :required => true %>
+    <p class="help-block">Choose a file in which addresses are listed one by one.</p>
+  </div>
+  <%= submit_tag "Import", :class => 'btn btn-default' %>
+<% end %>
+
+<hr>
+
+<% if !@bulk_deliveries.blank? %>
+  <div class="alert alert-info">There are currently <%= @bulk_deliveries.count %> addresses imported.</div>
+
+  <div class="list-group">
+    <% for bulk_delivery in @bulk_deliveries %>
+    <a href=<%= bulk_delivery_path(bulk_delivery.id) %> class="list-group-item">Bulk Delivery ID: <%= bulk_delivery.id %></a>
+    <% end %>
+  </div>
+<% else %>
+  
+<% end %>
