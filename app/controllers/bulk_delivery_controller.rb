@@ -8,21 +8,32 @@ class BulkDeliveryController < ApplicationController
   def show
     @bulk_delivery_details = Delivery.where(bulk_delivery_id: params[:id])
 
-    # labels = Prawn::Labels.render(@bulk_delivery_details, :type => "Avery5160") do |pdf, delivery|
-    #   pdf.font("#{Rails.root.join('public/fonts/gkai00mp.ttf')}") do
-    #     pdf.text delivery.name
-    #   end
-    # end
-
-    # send_data labels, :filename => "names.pdf", :type => "application/pdf", :disposition => "inline"
-
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = BulkDeliveryPdf.new(@bulk_delivery_details)
-        send_data pdf.render, filename: "bulk_delivery_#{@bulk_delivery.id}.pdf",
-                              type: "application/pdf",
-                              disposition: "inline"
+
+        Prawn::Labels.types = {
+          "CustomSheet" => {
+            "paper_size" => "A5",
+            "columns"    => 2,
+            "rows"       => 5
+        }}
+
+        labels = Prawn::Labels.render(@bulk_delivery_details, :type => "CustomSheet") do |pdf, delivery|
+          pdf.font("#{Rails.root.join('public/fonts/Corn_Song_Simplified_Chinese.ttf')}") do
+            pdf.text delivery.name, :size => 14
+            pdf.text delivery.province+','+delivery.city+','+delivery.district+','+delivery.street
+          end
+        end
+
+        send_data labels, :filename => "bulk_delivery_#{@bulk_delivery.id}.pdf",
+                          :type => "application/pdf", 
+                          :disposition => "inline"
+
+        # pdf = BulkDeliveryPdf.new(@bulk_delivery_details)
+        # send_data pdf.render, filename: "bulk_delivery_#{@bulk_delivery.id}.pdf",
+        #                       type: "application/pdf",
+        #                       disposition: "inline"
       end
     end
   end

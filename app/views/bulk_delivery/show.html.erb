@@ -32,7 +32,7 @@
     </tbody>
   </table>
 
-  <p><%= link_to("Print Bulk Delivery (PDF)", bulk_delivery_path(@bulk_delivery, format: "pdf")) %></p>
+  <p><%= link_to "Print Bulk Delivery (PDF)", bulk_delivery_path(@bulk_delivery, format: "pdf"), :class => 'btn btn-default' %></p>
 
 <% else %>
   
