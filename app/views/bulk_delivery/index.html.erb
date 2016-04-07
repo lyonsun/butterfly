@@ -10,6 +10,10 @@
     <%= file_field_tag :file, :id => 'excel-addesses', :required => true %>
     <p class="help-block">Choose a file in which addresses are listed one by one.</p>
   </div>
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input type="text" name="name" value="" placeholder="">
+  </div>
   <%= submit_tag "Import", :class => 'btn btn-default' %>
 <% end %>
 
@@ -20,7 +24,7 @@
 
   <div class="list-group">
     <% for bulk_delivery in @bulk_deliveries %>
-    <a href=<%= bulk_delivery_path(bulk_delivery.id) %> class="list-group-item">Bulk Delivery ID: <%= bulk_delivery.id %></a>
+    <a href=<%= bulk_delivery_path(bulk_delivery.id) %> class="list-group-item">Bulk Delivery: <%= bulk_delivery.name %></a>
     <% end %>
   </div>
 <% else %>

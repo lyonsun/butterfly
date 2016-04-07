@@ -12,35 +12,18 @@ class BulkDeliveryController < ApplicationController
       format.html
       format.pdf do
 
-        Prawn::Labels.types = {
-          "CustomSheet" => {
-            "paper_size" => "A5",
-            "columns"    => 2,
-            "rows"       => 5
-        }}
-
-        labels = Prawn::Labels.render(@bulk_delivery_details, :type => "CustomSheet") do |pdf, delivery|
-          pdf.font("#{Rails.root.join('public/fonts/Corn_Song_Simplified_Chinese.ttf')}") do
-            pdf.text delivery.name, :size => 14
-            pdf.text delivery.province+','+delivery.city+','+delivery.district+','+delivery.street
-          end
-        end
-
-        send_data labels, :filename => "bulk_delivery_#{@bulk_delivery.id}.pdf",
-                          :type => "application/pdf", 
-                          :disposition => "inline"
-
-        # pdf = BulkDeliveryPdf.new(@bulk_delivery_details)
-        # send_data pdf.render, filename: "bulk_delivery_#{@bulk_delivery.id}.pdf",
-        #                       type: "application/pdf",
-        #                       disposition: "inline"
+        pdf = BulkDeliveryPdf.new(@bulk_delivery_details)
+        send_data pdf.render, filename: "bulk_delivery_#{@bulk_delivery.id}.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
       end
     end
   end
 
   def import
     file = params[:file]
-    BulkDelivery.import(file)
+    name = params[:name]
+    BulkDelivery.import(name, file)
     redirect_to root_url, notice: "Order addresses imported."
   end
 

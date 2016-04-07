@@ -2,6 +2,8 @@ class BulkDelivery
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  field :name, type: String
+
   has_many :delivery
 
   def new_item(delivery)
@@ -12,10 +14,11 @@ class BulkDelivery
     self.deliveries.map { |i| i.delivery }
   end
 
-  def self.import(file)
+  def self.import(name, file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     bulk_delivery = BulkDelivery.new
+    bulk_delivery.name = name
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       delivery = Delivery.create! row.to_hash
