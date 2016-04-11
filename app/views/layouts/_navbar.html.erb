@@ -1,13 +1,24 @@
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Butterfly</a>
-    <ul class="nav navbar-nav">
-      <li>
-        <%= nav_link 'Home', root_path %>
-      </li>
-      <li>
-        <%= nav_link 'Delivery Addresses', delivery_index_path %>
-      </li>
-    </ul>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Butterfly</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= nav_link t('home'), root_path %>
+        </li>
+        <li>
+          <%= nav_link t('customers'), delivery_index_path %>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

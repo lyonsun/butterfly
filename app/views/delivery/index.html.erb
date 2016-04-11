@@ -1,17 +1,16 @@
-<h1 class="page-header">Delivery Addresses</h1>
+<h1 class="page-header"><%= t('customers') %></h1>
 
 <% if !@deliveries.blank? %>
-  <div class="alert alert-info">There are currently <%= @deliveries.count %> addresses imported.</div>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Province</th>
-        <th>City</th>
-        <th>District</th>
-        <th>Street</th>
-        <th>Postcode</th>
+        <th><%= t('name') %></th>
+        <th><%= t('phone') %></th>
+        <th><%= t('province') %></th>
+        <th><%= t('city') %></th>
+        <th><%= t('district') %></th>
+        <th><%= t('street') %></th>
+        <th><%= t('postcode') %></th>
       </tr>
     </thead>
     <tbody>

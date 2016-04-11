@@ -1,38 +1,40 @@
-<h1 class="page-header">Bulk Delivery <%= @bulk_delivery.name %></h1>
+<h1 class="page-header"><%= t('bulk_delivery_addresses')+' '+@bulk_delivery.name %></h1>
 
 <% if notice %>
 <div class="alert alert-success"><%= notice %></div>
 <% end %>
 
 <% if !@bulk_delivery_details.blank? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Province</th>
-        <th>City</th>
-        <th>District</th>
-        <th>Street</th>
-        <th>Postcode</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for delivery in @bulk_delivery_details %>
-      <tr>
-        <td><%= delivery.name %></td>
-        <td><%= delivery.phone %></td>
-        <td><%= delivery.province %></td>
-        <td><%= delivery.city %></td>
-        <td><%= delivery.district %></td>
-        <td><%= delivery.street %></td>
-        <td><%= delivery.postcode %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('name') %></th>
+          <th><%= t('phone') %></th>
+          <th><%= t('province') %></th>
+          <th><%= t('city') %></th>
+          <th><%= t('district') %></th>
+          <th><%= t('street') %></th>
+          <th><%= t('postcode') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for delivery in @bulk_delivery_details %>
+        <tr>
+          <td><%= delivery.name %></td>
+          <td><%= delivery.phone %></td>
+          <td><%= delivery.province %></td>
+          <td><%= delivery.city %></td>
+          <td><%= delivery.district %></td>
+          <td><%= delivery.street %></td>
+          <td><%= delivery.postcode %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <p><%= link_to "Print Bulk Delivery (PDF)", bulk_delivery_path(@bulk_delivery, format: "pdf"), :class => 'btn btn-default' %></p>
+  <p><%= link_to t('print_bulk_delivery_addresses')+' (PDF)', bulk_delivery_path(@bulk_delivery, format: "pdf"), :class => 'btn btn-default' %></p>
 
 <% else %>
   

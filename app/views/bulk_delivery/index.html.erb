@@ -1,30 +1,34 @@
-<h1 class="page-header">Import Order Addresses</h1>
+<h1 class="page-header"><%= t('import_bulk_delivery_addresses') %></h1>
 
 <% if notice %>
 <div class="alert alert-success"><%= notice %></div>
 <% end %>
 
 <%= form_tag import_bulk_delivery_index_path, multipart: true do %>
-  <div class="form-group">
-    <label for="excel-addesses">Addesses in Excel format: </label>
-    <%= file_field_tag :file, :id => 'excel-addesses', :required => true %>
-    <p class="help-block">Choose a file in which addresses are listed one by one.</p>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="excel-addesses"><%= t('bulk_delivery_address_file') %>: </label>
+        <%= file_field_tag :file, :id => 'excel-addesses', :required => true %>
+        <p class="help-block"><%= t('addresses_file_help_text') %></p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="name"><%= t('bulk_delivery_name') %>: </label>
+        <input type="text" name="name" class="form-control" size="30" required="required">
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="name">Name: </label>
-    <input type="text" name="name" value="" placeholder="">
-  </div>
-  <%= submit_tag "Import", :class => 'btn btn-default' %>
+  <%= submit_tag t('import'), :class => 'btn btn-default' %>
 <% end %>
 
 <hr>
 
 <% if !@bulk_deliveries.blank? %>
-  <div class="alert alert-info">There are currently <%= @bulk_deliveries.count %> addresses imported.</div>
-
   <div class="list-group">
     <% for bulk_delivery in @bulk_deliveries %>
-    <a href=<%= bulk_delivery_path(bulk_delivery.id) %> class="list-group-item">Bulk Delivery: <%= bulk_delivery.name %></a>
+    <a href=<%= bulk_delivery_path(bulk_delivery.id) %> class="list-group-item"><%= t('bulk_delivery_addresses') + ': ' + bulk_delivery.name %></a>
     <% end %>
   </div>
 <% else %>
