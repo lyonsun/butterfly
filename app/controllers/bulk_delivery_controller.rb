@@ -2,7 +2,7 @@ class BulkDeliveryController < ApplicationController
   before_action :set_bulk_delivery, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bulk_deliveries = BulkDelivery.all
+    @bulk_deliveries = BulkDelivery.order_by(created_at: :desc)
   end
 
   def show
