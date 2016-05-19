@@ -10,7 +10,7 @@ class BulkDeliveryPdf < Prawn::Document
     @bulk_delivery_details.each { |delivery| 
         font("#{Rails.root.join('public/fonts/gkai00mp.ttf')}") do
           grid([1, 0], [7, 2]).bounding_box do
-            move_down 15
+            move_down 25
             address = ''
             if delivery.province
               address += delivery.province
@@ -23,9 +23,9 @@ class BulkDeliveryPdf < Prawn::Document
             end
 
             indent 0, 20 do
-              text "#{delivery.name}", size: 11, :align => :right
-              text "#{address}", size: 12, :align => :right
-              text "#{delivery.street}", size: 12, :align => :right
+              text "#{delivery.name}", size: 10, :align => :right
+              text "#{address}", size: 10, :align => :right
+              text "#{delivery.street}", size: 10, :align => :right
             end
             
             start_new_page
