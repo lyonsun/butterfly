@@ -45,6 +45,9 @@ end
 
 # New added
 
+gem 'mongo'
+gem 'bson_ext'
+
 gem 'mongoid', '~> 5.1.0'
 
 gem 'bootstrap-sass', '~> 3.3.6'
