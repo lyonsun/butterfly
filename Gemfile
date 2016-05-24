@@ -53,3 +53,5 @@ gem 'roo', '~> 2.3.2'
 
 gem 'prawn'
 gem "prawn-labels"
+
+gem 'rails_12factor', group: :production
